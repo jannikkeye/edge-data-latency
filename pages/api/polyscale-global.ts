@@ -1,18 +1,16 @@
-import {Client} from "@polyscale/serverless-js";
+import { Client } from "@polyscale/serverless-js";
 import { NextRequest as Request, NextResponse as Response } from "next/server";
 
 export const config = {
   runtime: "edge",
 };
 
-
-
 const polyscale = new Client("https://serverless.aws.psedge.global", {
-    cacheId: process.env.polyscale_cache_id,
-    username: process.env.polyscale_db_username,
-    password: process.env.polyscale_db_password,
-    database: process.env.polyscale_db,
-    provider: "postgres",
+  cacheId: process.env.POLYSCALE_CACHE_ID,
+  username: process.env.POLYSCALE_DB_USERNAME,
+  password: process.env.POLYSCALE_DB_PASSWORD,
+  database: process.env.POLYSCALE_DB,
+  provider: "postgres",
 });
 
 const start = Date.now();
@@ -54,4 +52,3 @@ function toNumber(queryParam: string | null, min = 1, max = 5) {
   const num = Number(queryParam);
   return Number.isNaN(num) ? null : Math.min(Math.max(num, min), max);
 }
-
