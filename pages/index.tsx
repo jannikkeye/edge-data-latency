@@ -157,6 +157,12 @@ export default function Page() {
                 icon={DatabaseIcon}
               />
               <DropdownItem
+                data-testid="polyscale"
+                value="polyscale"
+                text="PolyScaleScale (@polyscale/serverless-js driver)"
+                icon={DatabaseIcon}
+              />
+              <DropdownItem
                 data-testid="shopify"
                 value="shopify"
                 text="Shopify (Storefront GraphQL API)"
